@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start: 2021-08-10 15:26:20
+  end: 2021-08-10 15:26:20
+  timed: false
+  dascription: MyText
+  color: MyString
+
+two:
+  name: MyString
+  start: 2021-08-10 15:26:20
+  end: 2021-08-10 15:26:20
+  timed: false
+  dascription: MyText
+  color: MyString
