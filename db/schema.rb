@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_062620) do
+ActiveRecord::Schema.define(version: 2021_08_23_002224) do
+
+  create_table "calendars", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", limit: 100, null: false
+    t.string "color"
+    t.boolean "visibility", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 100, null: false
     t.datetime "start", null: false
     t.datetime "end", null: false
     t.boolean "timed", default: true
-    t.text "dascription"
+    t.text "description"
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "calendar_id", null: false
+    t.index ["calendar_id"], name: "index_events_on_calendar_id"
   end
 
+  add_foreign_key "events", "calendars"
 end
